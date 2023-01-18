@@ -8,11 +8,12 @@ import Cards from "./components/Cards/Cards";
 
 function App() {
   let api = `https://rickandmortyapi.com/api/character/`;
-  //let [pageNumber, setPageNumber] = useState(1);
+  //let [pageNumber, setPageNumber] = useState(1); ?page=${pageNumber}
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
 
-  console.log(results);
+  //console.log(results);
+  //console.log(setPageNumber);
   console.log(info);
   useEffect(() => {
     (async function () {
@@ -33,9 +34,7 @@ function App() {
           </div>
           <div className="col-8">
             <div className="row">
-              <Cards />
-              <Cards />
-              <Cards />
+              <Cards results={results} />
             </div>
           </div>
         </div>

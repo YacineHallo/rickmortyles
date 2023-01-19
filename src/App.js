@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
+
+//Components
 import Filters from "./components/Filters/Filters";
 import Cards from "./components/Cards/Cards";
-
-//Component
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
-  let api = `https://rickandmortyapi.com/api/character/`;
-  //let [pageNumber, setPageNumber] = useState(1); ?page=${pageNumber}
+  let [pageNumber, setPageNumber] = useState(1);
+  //console.log("pageNumber ", pageNumber);
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
 
-  //console.log(results);
-  //console.log(setPageNumber);
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+
+  //console.log("results ", results);
+  //console.log("setPageNumer ", setPageNumber);
   console.log(info);
   useEffect(() => {
     (async function () {
@@ -39,6 +42,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
     </div>
   );
 }

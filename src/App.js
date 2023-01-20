@@ -9,9 +9,9 @@ import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
 
 function App() {
-  let [pageNumber, setPageNumber] = useState(1); //pagination.js
+  let [pageNumber, setPageNumber] = useState(); //pagination.js
   //console.log("pageNumber ", pageNumber);
-  let [search, setSearch] = useState("Smith");
+  let [search, setSearch] = useState(""); //saerch.js
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData; //Cards.js(results)
 
@@ -45,7 +45,11 @@ function App() {
           </div>
         </div>
       </div>
-      <Pagination pageNumber={pageNumber} setPageNumber={setPageNumber} />
+      <Pagination
+        pageNumber={pageNumber}
+        setPageNumber={setPageNumber}
+        info={info}
+      />
     </div>
   );
 }
